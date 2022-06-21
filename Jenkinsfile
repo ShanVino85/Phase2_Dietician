@@ -17,6 +17,7 @@ pipeline {
             }
         }
      	stage('Generate HTML report') {
+		steps{
         cucumber buildStatus: 'UNSTABLE',
                 reportTitle: 'My report',
                 fileIncludePattern: '**/*.json',
@@ -29,5 +30,5 @@ pipeline {
                 ]
             }
         }	
-    
+    }
 }
