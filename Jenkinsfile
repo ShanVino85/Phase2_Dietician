@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    
-      stages {
-       stage ('Build Stage') {
+    stages {
+        stage ('Build Stage') {
+
             steps {
              echo "Build is in progress..."
                     bat 'mvn clean'
@@ -16,10 +16,11 @@ pipeline {
             }
         }
         stage ('Cucumber reports') {
-        	      	steps {
-                           fileIncludePattern: "**/*.json",
-                           jsonReportDirectory: 'target/reports'
-                           }
+        	steps {
+        			cucumber buildStatus: "UNSTABLE",
+        			fileIncludePattern: "**/*.json",
+        			jsonReportDirectory: 'target/reports'
+        		  }
         }	
     }
 }
