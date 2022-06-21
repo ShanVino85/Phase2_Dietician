@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
         stage ('Build Stage') {
 
@@ -15,12 +16,18 @@ pipeline {
                     bat 'mvn test'
             }
         }
-        stage ('Cucumber reports') {
-        	steps {
-        			cucumber buildStatus: "UNSTABLE",
-        			fileIncludePattern: "**/*.json",
-        			jsonReportDirectory: 'target/reports'
-        		  }
+     	stage('Generate HTML report') {
+        cucumber buildStatus: 'UNSTABLE',
+                reportTitle: 'My report',
+                fileIncludePattern: '**/*.json',
+                trendsLimit: 10,
+                classifications: [
+                    [
+                        'key': 'Browser',
+                        'value': 'Chrome'
+                    ]
+                ]
+            }
         }	
-    }
+    
 }
