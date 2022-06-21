@@ -2,13 +2,6 @@ pipeline {
     agent any
     
       stages {
-      
-       stage ('Check Out')
-       {
-        steps {
-          checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ShanVino85/Phase2_Dietician.git']]])
-        }
-       }
        stage ('Build Stage') {
             steps {
              echo "Build is in progress..."
