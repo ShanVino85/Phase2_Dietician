@@ -21,6 +21,7 @@ pipeline {
         cucumber buildStatus: 'UNSTABLE',
                 reportTitle: 'My report',
                 fileIncludePattern: '**/*.json',
+                jsonReportDirectory: 'target',
                 trendsLimit: 10,
                 classifications: [
                     [
