@@ -7,6 +7,7 @@ pipeline {
             steps {
              echo "Build is in progress..."
                     bat 'mvn clean install'
+              echo "Build Completed Successfully..."
             }
         }
        stage ('Testing Stage') {
@@ -17,14 +18,16 @@ pipeline {
             {
 		    bat 'mvn clean test'
             }
+            
+            echo "Testing Completed Successfully..."
         }
        }
-     	stage('Generate HTML report') {
+     	stage('Generate Cucumber report') {
 		steps{
         cucumber buildStatus: 'UNSTABLE',
-                reportTitle: 'MyReport',
+                reportTitle: 'My Cucuber Report',
                 fileIncludePattern: '**/*.json',
-		jsonReportDirectory: 'target',
+		        jsonReportDirectory: 'target',
                 trendsLimit: 10,
                 classifications: [
                     [
