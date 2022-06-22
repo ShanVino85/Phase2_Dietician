@@ -38,22 +38,21 @@ pipeline {
             }
         }
         
-        stage('publish HTML reports') {
-        steps {
-           
-        publishHTML(
-        target: [
-              allowMissing         : false,
-              alwaysLinkToLastBuild: false,
-              keepAll              : true,
-              reportDir            : 'target',
-              reportFiles          : 'Register.html',
-              reportName           : "HTML Feture Report"
-        ]
-    )
-        }
+        
+         post {
+    always {
+      publishHTML target: [
+        allowMissing: false,
+        alwaysLinkToLastBuild: false,
+        keepAll: true,
+        reportName : 'Test Report',
+        reportDir:   'target',
+        reportFiles: 'Register.html'
+      ]
     }
-	    
+  }      
+        
+  
 	
     }
 }
