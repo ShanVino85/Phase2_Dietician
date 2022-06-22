@@ -14,10 +14,11 @@ pipeline {
             steps {
 			  echo "Testing in progress"
          script 
-            {sh "mvn clean test -Dcucumber.options=\"src/test/resources/Features/ --tags @YourTagName\""}
+            {
+		    bat 'mvn clean test'
             }
         }
-        
+       }
      	stage('Generate HTML report') {
 		steps{
         cucumber buildStatus: 'UNSTABLE',
