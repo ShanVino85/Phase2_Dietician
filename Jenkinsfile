@@ -20,8 +20,9 @@ pipeline {
      	stage('Generate HTML report') {
 		steps{
         cucumber buildStatus: 'UNSTABLE',
-                reportTitle: 'My report',
+                reportTitle: 'MyReport',
                 fileIncludePattern: '**/*.json',
+		jsonReportDirectory: 'target',
                 trendsLimit: 10,
                 classifications: [
                     [
@@ -30,6 +31,12 @@ pipeline {
                     ]
                 ]
             }
-        }	
+        }
+	    
+	post {
+        always {
+            cucumber '**/cucumber.json'
+        }
+    }
     }
 }
