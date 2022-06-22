@@ -41,18 +41,15 @@ pipeline {
         stage('publish HTML reports') {
         steps {
            
-            script {
-                
-                       publishHTML target: [
+                        publishHTML target: [
                         allowMissing:false,
                         alwaysLinkToLastBuild: false,
                         keepAll:true,
                         reportDir: 'target',
                         reportFiles: 'index.html',
-                        reportName: fcucumber.html
+                        reportName: 'cucumber.html'
                     ]
-                                 
-            }           
+                  
         }
     }
 	    
