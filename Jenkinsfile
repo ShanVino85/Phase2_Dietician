@@ -38,7 +38,7 @@ pipeline {
             }
         }
         
-        
+       } 
          post {
     always {
       publishHTML target: [
@@ -52,7 +52,5 @@ pipeline {
     }
   }      
         
-  
-	
-    }
+     
 }
