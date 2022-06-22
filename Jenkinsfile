@@ -41,15 +41,16 @@ pipeline {
         stage('publish HTML reports') {
         steps {
            
-                        publishHTML target: [
-                        allowMissing:false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll:true,
-                        reportDir: 'target',
-                        reportFiles: 'index.html',
-                        reportName: 'cucumber.html'
-                    ]
-                  
+        publishHTML(
+        target: [
+              allowMissing         : false,
+              alwaysLinkToLastBuild: false,
+              keepAll              : true,
+              reportDir            : 'target',
+              reportFiles          : 'Register.html',
+              reportName           : "HTML Feture Report"
+        ]
+    )
         }
     }
 	    

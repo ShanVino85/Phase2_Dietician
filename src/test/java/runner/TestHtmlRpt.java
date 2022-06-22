@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
 	@CucumberOptions(features = {"src/test/resources/Features/Register.feature"},
 			glue= {"stepdefinitions"},
 			 monochrome = true,
-				 plugin = {"pretty","html:target/cucumber.html"})
+				 plugin = {"pretty","html:target/Register.html"})
 	
 
 
