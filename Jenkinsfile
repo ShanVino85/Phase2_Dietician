@@ -13,7 +13,8 @@ pipeline {
 
             steps {
 			  echo "Testing in progress"
-                    bat 'mvn test'
+         script 
+            {sh "mvn clean test -Dcucumber.options=\"src/test/resources/Features/ --tags @YourTagName\""}
             }
         }
         
