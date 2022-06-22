@@ -38,19 +38,24 @@ pipeline {
             }
         }
         
-       } 
+       stage('Publishing HTML report') {
+		steps{
+		echo "Publishing HTML report..."
+		}
          post {
     always {
       publishHTML target: [
         allowMissing: false,
         alwaysLinkToLastBuild: false,
         keepAll: true,
-        reportName : 'Test Report',
+        reportName : 'TestReport',
         reportDir:   'target',
         reportFiles: 'Register.html'
       ]
     }
   }      
-        
-     
+  }
 }
+ }      
+     
+
