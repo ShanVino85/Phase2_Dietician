@@ -9,13 +9,13 @@ pipeline {
                     bat 'mvn clean install'
             }
         }
-      /*  stage ('Testing Stage') {
+       stage ('Testing Stage') {
 
             steps {
 			  echo "Testing in progress"
                     bat 'mvn test'
             }
-        }*/
+        }
         
      	stage('Generate HTML report') {
 		steps{
