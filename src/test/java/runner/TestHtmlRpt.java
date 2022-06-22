@@ -9,10 +9,10 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 
-	@CucumberOptions(features = {"src/test/resources/Features/Register.feature"},
+	@CucumberOptions(features = {"src/test/resources/Features"},
 			glue= {"stepdefinitions"},
 			 monochrome = true,
-				 plugin = {"pretty","html:target/Register.html"})
+				 plugin = {"pretty","html:target/dietician.html"})
 	
 
 

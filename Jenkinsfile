@@ -50,7 +50,7 @@ pipeline {
         keepAll: true,
         reportName : 'TestReport',
         reportDir:   'target',
-        reportFiles: 'Register.html'
+        reportFiles: 'dietician.html'
       ]
     }
   }      
