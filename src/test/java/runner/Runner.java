@@ -13,7 +13,7 @@ import io.cucumber.junit.CucumberOptions;
 				 plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json","junit:target/cucumber.xml"})
 	
 
-public class TestRunner {
+public class Runner {
 
 	public static void main(String[] args) {
 		
