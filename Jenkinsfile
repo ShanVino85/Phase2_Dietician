@@ -37,6 +37,29 @@ pipeline {
                 ]
             }
         }
+        
+        stage('publish HTML reports') {
+        steps {
+            unstash 'source'
+
+            script {
+                sh 'ls target/ > listFiles.txt'
+                def files = readFile("listFiles.txt").split("\\r?\\n");
+                sh 'rm -f listFiles.txt'
+
+                for (i = 0; i < files.size(); i++) {
+                    publishHTML target: [
+                        allowMissing:false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll:true,
+                        reportDir: 'target/' + files[i],
+                        reportFiles: 'index.html',
+                        reportName: files[i]
+                    ]
+                }                   
+            }           
+        }
+    }
 	    
 	
     }
