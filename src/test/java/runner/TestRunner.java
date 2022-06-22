@@ -2,22 +2,12 @@ package runner;
 
 import org.junit.runner.RunWith;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-
-	@CucumberOptions(features = {"src/test/resources/Features"},
-			glue= {"stepdefinitions"},
-			 monochrome = true,
-				 plugin = {"pretty","html:target/cucumber.html","json:target/cucumber.json","junit:target/cucumber.xml"})
-	
-
+@CucumberOptions(plugin = { "pretty", "json:target/cucumber.json" }, features = {
+        "src/test/resources/Feature/" }, glue = { "classpath:" }, tags = { "@YourTagName" })
 public class TestRunner {
-
-	public static void main(String[] args) {
-		
-
-	}
 
 }
